@@ -21,7 +21,7 @@ namespace ViewController.Controllers
 
         public ActionResult Index()
         {
-            return View("Students", StudentService.Students);
+            return View(StudentService.Students);
         }
     }
 }
