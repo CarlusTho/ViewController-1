@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using ViewController.Models;
 
 namespace ViewController.Services
@@ -14,6 +15,8 @@ namespace ViewController.Services
         public StudentService()
         {
             string text = File.ReadAllText("students.json");
+
+            Students = JsonConvert.DeserializeObject<IEnumerable<StudentModel>>(text);
         }
     }
 }

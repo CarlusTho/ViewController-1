@@ -21,52 +21,7 @@ namespace ViewController.Controllers
 
         public ActionResult Index()
         {
-            return View("Students", new []
-            {
-                new StudentModel
-                {
-                    Name = "VAREILLE",
-                    Surname = "Nicolas",
-                    Techno = "C#"
-                },
-                new StudentModel
-                {
-                    Name = "MASSE",
-                    Surname = "Raphaël",
-                    Techno = "PHP"
-                },
-                new StudentModel
-                {
-                    Name = "CARLUS",
-                    Surname = "Thomas",
-                    Techno = "C#"
-                },
-                new StudentModel
-                {
-                    Name = "COUTO DE OLIVEIRA",
-                    Surname = "Dylan",
-                    Techno = "Python"
-                },
-                new StudentModel
-                {
-                    Name = "NGUYEN",
-                    Surname = "Timothée",
-                    Techno = "C#"
-                },
-                new StudentModel
-                {
-                    Name = "HENRIQUES",
-                    Surname = "Sylvio",
-                    Techno = "VBA.Net"
-                },
-                new StudentModel
-                {
-                    Name = "DE CAMPOS",
-                    Surname = "Armelio",
-                    Techno = "Python"
-                }
-
-            });
+            return View("Students", StudentService.Students);
         }
     }
 }
