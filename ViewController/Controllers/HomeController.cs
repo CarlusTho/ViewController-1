@@ -9,6 +9,7 @@ using ViewController.Models;
 
 namespace ViewController.Controllers
 {
+    [Route("[Controller]/")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,14 +19,20 @@ namespace ViewController.Controllers
             _logger = logger;
         }
 
+        [Route("/")]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet("privacy/{id}/")]
+        public IActionResult Privacy(int id)
         {
-            return View();
+            return View(new PrivacyModel
+            {
+                Id = id,
+                Name = "Skrom"
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
