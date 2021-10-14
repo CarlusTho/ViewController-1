@@ -42,6 +42,13 @@ namespace ViewController.Controllers
 
         }
 
+        [HttpGet("delete/{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            StudentService.RemoveStudent(id);
+            return RedirectToAction("Index");
+        }
+
         
     }
 }

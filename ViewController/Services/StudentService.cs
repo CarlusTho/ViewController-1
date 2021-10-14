@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ViewController.Models;
@@ -26,5 +27,12 @@ namespace ViewController.Services
 
             File.WriteAllText("students.json", data);
         }
+
+        public void RemoveStudent(Guid id)
+        {
+            Students.Remove(Students.First(i => i.Id == id));
+            string data = JsonConvert.SerializeObject(Students);
+            
+            File.WriteAllText("students.json", data);
+        }
     }
-}
