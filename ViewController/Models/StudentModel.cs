@@ -10,5 +10,6 @@ namespace ViewController.Models
         public string Name;
         public string Surname;
         public string Techno;
+        public Guid Id;
     }
 }

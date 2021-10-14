@@ -21,7 +21,27 @@ namespace ViewController.Controllers
 
         public ActionResult Index()
         {
-            return View(StudentService.Students);
+            return View("Index", StudentService.Students);
         }
+
+        [HttpGet("create/{nom}/{prenom}/{techno}")]
+        public IActionResult Create(string nom, string prenom, string techno)
+        {
+            StudentModel newStudentModel = new StudentModel()
+            {
+
+                Name = nom,
+                Surname = prenom,
+                Techno = techno,
+                Id = Guid.NewGuid()
+
+            };
+
+            StudentService.AddStudent(newStudentModel);
+            return RedirectToAction("Index");
+
+        }
+
+        
     }
 }

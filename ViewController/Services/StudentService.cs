@@ -10,13 +10,21 @@ namespace ViewController.Services
 {
     public class StudentService
     {
-        public IEnumerable<StudentModel> Students;
+        public List<StudentModel> Students;
 
         public StudentService()
         {
             string text = File.ReadAllText("students.json");
 
-            Students = JsonConvert.DeserializeObject<IEnumerable<StudentModel>>(text);
+            Students = JsonConvert.DeserializeObject<List<StudentModel>>(text);
+        }
+
+        public void AddStudent(StudentModel newStudent)
+        {
+            Students.Add(newStudent);
+            string data = JsonConvert.SerializeObject(Students);
+
+            File.WriteAllText("students.json", data);
         }
     }
 }
