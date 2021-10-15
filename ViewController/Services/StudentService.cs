@@ -32,7 +32,19 @@ namespace ViewController.Services
         {
             Students.Remove(Students.First(i => i.Id == id));
             string data = JsonConvert.SerializeObject(Students);
-            
+
             File.WriteAllText("students.json", data);
         }
+
+        public void EditStudent(string nom, string prenom, string techno)
+        {
+            StudentModel searchStud = Students.FirstOrDefault(i => i.Name == nom && i.Surname == prenom);
+
+            RemoveStudent(searchStud.Id);
+
+            searchStud.Techno = techno;
+            AddStudent(searchStud);
+        }
+
     }
+}

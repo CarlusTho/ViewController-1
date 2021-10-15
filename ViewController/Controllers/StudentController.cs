@@ -49,6 +49,12 @@ namespace ViewController.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [HttpGet("edit/{nom}/{prenom}/{techno}")]
+        public IActionResult Edit(string nom, string prenom, string techno)
+        {
+            StudentService.EditStudent(nom, prenom, techno);
+            return RedirectToAction("Index");
+        }
+
     }
 }
